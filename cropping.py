@@ -17,11 +17,13 @@ def res(images_dir, masks_dir,flag):
         im2 = cv2.imread(masks_fps[i])
         #print(im2,masks_fps[i])
         resized1 = cv2.resize(im,(512,512))
+        resized1 = resized1.astype(np.float32)
         """cv2.imshow("Resized image", resized1)
         cv2.waitKey(0)"""
         resized2 = cv2.resize(im2,(512,512))
+        resized2 = resized2.astype(np.float32)
         cv2.imwrite(f"cropped_data/{dirs[flag]}data/{i}.jpg",resized1)
         cv2.imwrite(f"cropped_data/{dirs[flag]}mask/{i}.png",resized2)
         print(i)
 
-res("cropped_data/val_data_full","cropped_data/val_mask_full",3)
+res("../cropped_data/val_data_full","../cropped_data/val_mask_full",3)

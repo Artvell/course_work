@@ -40,8 +40,8 @@ h = original.shape[1] // 2
 n = 10
 max_step = 100
 points = lomanaya(10,max_step,n,w,h)
-black_img = np.zeros((original.shape[0],original.shape[1],3), np.uint8)
-true_value_img = np.zeros((original.shape[0],original.shape[1],1), np.uint8)
+black_img = np.zeros((original.shape[0],original.shape[1],3), np.int16)
+true_value_img = np.zeros((original.shape[0],original.shape[1],1), np.int16)
 
 for i in range(len(points)-1):
     width = random.choice(range(1,7))
