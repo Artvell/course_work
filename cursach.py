@@ -41,13 +41,12 @@ n = 10
 max_step = 100
 points = lomanaya(10,max_step,n,w,h)
 black_img = np.zeros((original.shape[0],original.shape[1],3), np.uint8)
-true_value_img = np.zeros((original.shape[0],original.shape[1],3), np.uint8)
+true_value_img = np.zeros((original.shape[0],original.shape[1],1), np.uint8)
 
 for i in range(len(points)-1):
     width = random.choice(range(1,7))
     cv2.line(black_img,points[i],points[i+1],(128,128,128),thickness=width)
     cv2.line(true_value_img,points[i],points[i+1],(255,255,255),thickness=width)
 crack_image = cv2.subtract(original,black_img)
-Hori = np.concatenate((crack_image, true_value_img), axis=1)
-cv2.imshow('crack', Hori)
+cv2.imshow('crack', true_value_img)
 cv2.waitKey(0)
